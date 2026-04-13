@@ -20,29 +20,8 @@ const Home = () => {
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      const data = event.data;
-      if (!data || typeof data !== "object") return;
-
-      // Log para debug — remover después de confirmar
-      if (data.type === "hsFormCallback" || data.eventName?.toString().includes("Form")) {
-        console.log("[HubSpot event]", data);
-      }
-
-      const isSubmitted =
-        // Formato estándar: type + eventName
-        (data.type === "hsFormCallback" &&
-          (data.eventName === "onFormSubmitted" ||
-            data.eventName === "onFormSubmit")) ||
-        // Formato alternativo sin type
-        data.eventName === "onFormSubmitted" ||
-        data.eventName === "onFormSubmit" ||
-        // Formato anidado
-        data.data?.eventName === "onFormSubmitted";
-
-      if (isSubmitted) {
-        sessionStorage.setItem(SESSION_KEY, "true");
-        navigate("/gracias");
-      }
+      // Log abierto — captura todo para debug
+      console.log("[MSG]", event.origin, event.data);
     };
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
