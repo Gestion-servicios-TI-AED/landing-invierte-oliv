@@ -28,9 +28,19 @@ const Home = () => (
 );
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const granted = sessionStorage.getItem(SESSION_KEY);
-  if (!granted) return <Navigate to="/" replace />;
-  return <>{children}</>;
+  const params = new URLSearchParams(window.location.search);
+  const fromHubSpot = params.get("hs") === "1";
+  const fromSession = sessionStorage.getItem(SESSION_KEY) === "true";
+
+  if (fromHubSpot) {
+    // Guardar en sesión para que funcione si el usuario refresca la página
+    sessionStorage.setItem(SESSION_KEY, "true");
+    return <>{children}</>;
+  }
+
+  if (fromSession) return <>{children}</>;
+
+  return <Navigate to="/" replace />;
 };
 
 function App() {
