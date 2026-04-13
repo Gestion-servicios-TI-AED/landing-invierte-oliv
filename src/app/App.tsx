@@ -33,8 +33,9 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const fromSession = sessionStorage.getItem(SESSION_KEY) === "true";
 
   if (fromHubSpot) {
-    // Guardar en sesión para que funcione si el usuario refresca la página
     sessionStorage.setItem(SESSION_KEY, "true");
+    // Limpiar la URL para que quede /gracias sin parámetros
+    window.history.replaceState({}, "", "/gracias");
     return <>{children}</>;
   }
 
