@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Concept } from "./components/Concept";
@@ -9,6 +9,7 @@ import { Investment } from "./components/Investment";
 import { LeadForm } from "./components/LeadForm";
 import { Footer } from "./components/Footer";
 import { Gracias } from "./pages/Gracias";
+import { SESSION_KEY } from "./components/HubSpotForm";
 import { Toaster } from "sonner";
 import "../styles/fonts.css";
 
@@ -26,12 +27,25 @@ const Home = () => (
   </div>
 );
 
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const granted = sessionStorage.getItem(SESSION_KEY);
+  if (!granted) return <Navigate to="/" replace />;
+  return <>{children}</>;
+};
+
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/gracias" element={<Gracias />} />
+        <Route
+          path="/gracias"
+          element={
+            <ProtectedRoute>
+              <Gracias />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Toaster position="bottom-right" />
     </>
