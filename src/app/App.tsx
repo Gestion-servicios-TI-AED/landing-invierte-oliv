@@ -19,12 +19,11 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      // Log abierto — captura todo para debug
-      console.log("[MSG]", event.origin, event.data);
-    };
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("submissionGuid")) {
+      sessionStorage.setItem(SESSION_KEY, "true");
+      navigate("/gracias", { replace: true });
+    }
   }, [navigate]);
 
   return (
