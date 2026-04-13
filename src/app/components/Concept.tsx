@@ -1,28 +1,7 @@
-import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
+import { HubSpotForm } from "./HubSpotForm";
 
 export const Concept = () => {
-  const formContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = formContainerRef.current;
-    if (!container) return;
-
-    // Limpiar cualquier formulario anterior
-    container.innerHTML = "";
-
-    // Crear el div del formulario dinámicamente para que el MutationObserver de HubSpot lo detecte
-    const formDiv = document.createElement("div");
-    formDiv.className = "hs-form-frame";
-    formDiv.setAttribute("data-region", "na1");
-    formDiv.setAttribute("data-form-id", "7adbe838-b74a-47a7-9b35-ae427337e5a3");
-    formDiv.setAttribute("data-portal-id", "50442232");
-    container.appendChild(formDiv);
-
-    return () => {
-      container.innerHTML = "";
-    };
-  }, []);
 
   return (
     <section id="concept" className="py-24 bg-white overflow-hidden">
@@ -69,7 +48,7 @@ export const Concept = () => {
                  <p className="text-gray-500 font-sans text-xs md:text-sm">Los proyectos más exitosos no son los que prometen más, sino los que se diseñan con criterio.</p>
                </div>
                
-               <div ref={formContainerRef} className="w-full"></div>
+               <HubSpotForm targetId="hs-form-concept" />
              </div>
              
              {/* Decorative background element behind the card */}

@@ -1,32 +1,7 @@
-import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
+import { HubSpotForm } from "./HubSpotForm";
 
 export const LeadForm = () => {
-  const formContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = formContainerRef.current;
-    if (!container) return;
-
-    // Limpiar cualquier formulario anterior
-    container.innerHTML = "";
-
-    // Pequeño delay para que no colisione con el primer formulario
-    const timeout = setTimeout(() => {
-      const formDiv = document.createElement("div");
-      formDiv.className = "hs-form-frame";
-      formDiv.setAttribute("data-region", "na1");
-      formDiv.setAttribute("data-form-id", "7adbe838-b74a-47a7-9b35-ae427337e5a3");
-      formDiv.setAttribute("data-portal-id", "50442232");
-      container.appendChild(formDiv);
-    }, 500);
-
-    return () => {
-      clearTimeout(timeout);
-      container.innerHTML = "";
-    };
-  }, []);
-
   return (
     <section id="lead-form" className="py-24 bg-white">
       <div className="container mx-auto px-6 max-w-5xl">
@@ -46,7 +21,7 @@ export const LeadForm = () => {
           transition={{ duration: 0.8 }}
           className="bg-[#f9f9f7] p-6 md:p-12 rounded-sm shadow-sm border border-[#f0f0e0]"
         >
-          <div ref={formContainerRef} className="w-full"></div>
+          <HubSpotForm targetId="hs-form-leadform" />
         </motion.div>
       </div>
     </section>

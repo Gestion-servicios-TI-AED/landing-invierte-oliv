@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Concept } from "./components/Concept";
@@ -10,36 +9,23 @@ import { Investment } from "./components/Investment";
 import { LeadForm } from "./components/LeadForm";
 import { Footer } from "./components/Footer";
 import { Gracias } from "./pages/Gracias";
+import { SESSION_KEY } from "./components/HubSpotForm";
 import { Toaster } from "sonner";
 import "../styles/fonts.css";
 
-const SESSION_KEY = "oliv_form_submitted";
-
-const Home = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.has("submissionGuid")) {
-      sessionStorage.setItem(SESSION_KEY, "true");
-      navigate("/gracias", { replace: true });
-    }
-  }, [navigate]);
-
-  return (
-    <div className="bg-[#fcfcfb] min-h-screen font-sans selection:bg-[#6a1533] selection:text-white">
-      <Navbar />
-      <Hero />
-      <Concept />
-      <ParallaxBanner />
-      <WhyOliv />
-      <Gallery />
-      <Investment />
-      <LeadForm />
-      <Footer />
-    </div>
-  );
-};
+const Home = () => (
+  <div className="bg-[#fcfcfb] min-h-screen font-sans selection:bg-[#6a1533] selection:text-white">
+    <Navbar />
+    <Hero />
+    <Concept />
+    <ParallaxBanner />
+    <WhyOliv />
+    <Gallery />
+    <Investment />
+    <LeadForm />
+    <Footer />
+  </div>
+);
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const granted = sessionStorage.getItem(SESSION_KEY);
