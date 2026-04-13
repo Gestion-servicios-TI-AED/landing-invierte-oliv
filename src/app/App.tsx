@@ -9,7 +9,6 @@ import { Investment } from "./components/Investment";
 import { LeadForm } from "./components/LeadForm";
 import { Footer } from "./components/Footer";
 import { Gracias } from "./pages/Gracias";
-import { SESSION_KEY } from "./components/HubSpotForm";
 import { Toaster } from "sonner";
 import "../styles/fonts.css";
 
@@ -30,18 +29,11 @@ const Home = () => (
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const params = new URLSearchParams(window.location.search);
   const fromHubSpot = params.get("hs") === "1";
-  const fromSession = sessionStorage.getItem(SESSION_KEY) === "true";
 
-  if (fromHubSpot) {
-    sessionStorage.setItem(SESSION_KEY, "true");
-    // Limpiar la URL para que quede /gracias sin parámetros
-    window.history.replaceState({}, "", "/gracias");
-    return <>{children}</>;
-  }
+  if (!fromHubSpot) return <Navigate to="/" replace />;
 
-  if (fromSession) return <>{children}</>;
-
-  return <Navigate to="/" replace />;
+  window.history.replaceState({}, "", "/gracias");
+  return <>{children}</>;
 };
 
 function App() {
