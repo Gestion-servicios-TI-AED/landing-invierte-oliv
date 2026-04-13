@@ -32,8 +32,10 @@ export const HubSpotForm = ({ targetId }: HubSpotFormProps) => {
         portalId: PORTAL_ID,
         formId: FORM_ID,
         target: `#${targetId}`,
-        onFormSubmitted: () => {
+        onFormSubmit: () => {
           sessionStorage.setItem(SESSION_KEY, "true");
+        },
+        onFormSubmitted: () => {
           window.location.href = "/gracias";
         },
       });
