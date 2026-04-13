@@ -13,7 +13,6 @@ declare global {
 const SCRIPT_ID = "hs-forms-v2-script";
 const PORTAL_ID = "50442232";
 const FORM_ID = "7adbe838-b74a-47a7-9b35-ae427337e5a3";
-export const SESSION_KEY = "oliv_form_submitted";
 
 interface HubSpotFormProps {
   targetId: string;
@@ -33,7 +32,6 @@ export const HubSpotForm = ({ targetId }: HubSpotFormProps) => {
         formId: FORM_ID,
         target: `#${targetId}`,
         onFormSubmitted: () => {
-          sessionStorage.setItem(SESSION_KEY, "true");
           window.location.href = "/gracias";
         },
       });
