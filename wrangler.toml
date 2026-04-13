@@ -1,8 +1,6 @@
 name = "invierte-en-oliv"
-compatibility_date = "2024-03-11"
+compatibility_date = "2024-09-23"
 
 [assets]
 directory = "./dist"
-
-[assets.serving]
 not_found_handling = "single-page-application"
