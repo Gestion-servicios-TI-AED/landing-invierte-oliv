@@ -6,6 +6,7 @@ import { ParallaxBanner } from "./components/ParallaxBanner";
 import { WhyOliv } from "./components/WhyOliv";
 import { Gallery } from "./components/Gallery";
 import { Investment } from "./components/Investment";
+import { Location } from "./components/Location";
 import { LeadForm } from "./components/LeadForm";
 import { Footer } from "./components/Footer";
 import { Gracias } from "./pages/Gracias";
@@ -19,6 +20,7 @@ const Home = () => (
     <Concept />
     <ParallaxBanner />
     <WhyOliv />
+    <Location />
     <Gallery />
     <Investment />
     <LeadForm />
