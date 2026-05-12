@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import mapaOliv from "@/assets/mapa-oliv-web.jpg";
+import mapaDesktop from "@/assets/mapa-desktop.png";
+import mapaMobile from "@/assets/mapa-mobile.jpg";
 
 const distances = [
   { icon: "⛽", time: "2 Min", label: "Estación de gasolina" },
@@ -69,7 +70,7 @@ export const Location = () => {
           className="hidden md:block w-full rounded-xl overflow-hidden"
         >
           <img
-            src={mapaOliv}
+            src={mapaDesktop}
             alt="Mapa de ubicación OLIV Cartagena"
             className="w-full h-[620px] object-cover object-center"
           />
@@ -85,9 +86,9 @@ export const Location = () => {
         >
           <div className="w-full rounded-xl overflow-hidden mb-5">
             <img
-              src={mapaOliv}
+              src={mapaMobile}
               alt="Mapa de ubicación OLIV Cartagena"
-              className="w-full h-[320px] object-cover object-right"
+              className="w-full h-[420px] object-cover object-center"
             />
           </div>
           <InfoCard />
