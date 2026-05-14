@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import bannerImage from "@/assets/4da0979aa78ce985dcf7d5df3d33541fb09f2bc4.png";
+import bannerImage from "@/assets/4da0979aa78ce985dcf7d5df3d33541fb09f2bc4.webp";
 
 export const ParallaxBanner = () => {
   const ref = useRef(null);
@@ -21,6 +21,8 @@ export const ParallaxBanner = () => {
           src={bannerImage}
           alt="Familia disfrutando en OLIV"
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
       </motion.div>
 

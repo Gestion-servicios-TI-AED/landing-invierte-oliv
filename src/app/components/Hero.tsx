@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-scroll";
 import { ChevronDown } from "lucide-react";
-import heroImage from "@/assets/71c4dde14a2b831608de2e01e5736593d3718ad5.png";
+import heroImage from "@/assets/71c4dde14a2b831608de2e01e5736593d3718ad5.webp";
 
 export const Hero = () => {
   return (
@@ -12,6 +12,8 @@ export const Hero = () => {
           src={heroImage}
           alt="Familia caminando en naturaleza"
           className="w-full h-full object-cover"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-black/30"></div>
       </div>

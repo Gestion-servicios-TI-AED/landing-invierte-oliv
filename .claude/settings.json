@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node -e \"try{require\\('sharp'\\);console.log\\('sharp ok'\\)}catch\\(e\\){console.log\\('no sharp: ' + e.message\\)}\")",
+      "PowerShell(pnpm add -D sharp)",
+      "PowerShell(npm install --save-dev sharp 2>&1)",
+      "PowerShell(tail -5)",
+      "PowerShell(npm install --save-dev sharp)",
+      "PowerShell(node scripts/convert-to-webp.mjs)",
+      "PowerShell(npm run build 2>&1)"
+    ]
+  }
+}
