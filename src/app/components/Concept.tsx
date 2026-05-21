@@ -49,7 +49,7 @@ export const Concept = () => {
                </div>
                
                <HubSpotForm targetId="hs-form-concept" />
-               <p className="mt-4 text-center text-xs text-gray-400 font-sans font-light">
+               <p className="mt-4 text-center text-xs text-gray-600 font-sans font-semibold">
                  Al enviar este formulario, aceptas las{" "}
                  <a
                    href="https://olivcartagena.com/politica-de-tratamiento-de-datos"
