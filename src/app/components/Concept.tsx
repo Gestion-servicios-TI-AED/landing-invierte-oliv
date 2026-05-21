@@ -49,6 +49,18 @@ export const Concept = () => {
                </div>
                
                <HubSpotForm targetId="hs-form-concept" />
+               <p className="mt-4 text-center text-xs text-gray-400 font-sans font-light">
+                 Al enviar este formulario, aceptas las{" "}
+                 <a
+                   href="https://olivcartagena.com/politica-de-tratamiento-de-datos"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="underline hover:text-[#6a1533] transition-colors"
+                 >
+                   condiciones y tratamiento de datos personales
+                 </a>
+                 .
+               </p>
              </div>
              
              {/* Decorative background element behind the card */}
