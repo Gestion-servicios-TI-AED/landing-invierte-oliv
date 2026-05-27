@@ -50,16 +50,16 @@ export const Concept = () => {
                
                <HubSpotForm targetId="hs-form-concept" />
                <p className="mt-4 text-center text-xs text-gray-600 font-sans font-semibold">
-                 Al enviar este formulario, aceptas las{" "}
+                 Al enviar aceptas nuestra{" "}
                  <a
                    href="https://olivcartagena.com/politica-de-tratamiento-de-datos"
                    target="_blank"
                    rel="noopener noreferrer"
                    className="underline hover:text-[#6a1533] transition-colors"
                  >
-                   condiciones y tratamiento de datos personales
-                 </a>
-                 .
+                   política de tratamiento de datos
+                 </a>{" "}
+                 y ser contactado por OLIV Cartagena vía WhatsApp.
                </p>
              </div>
              
